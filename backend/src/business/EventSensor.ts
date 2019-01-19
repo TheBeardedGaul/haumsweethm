@@ -1,0 +1,3 @@
+class EventSensor extends Event {
+
+}

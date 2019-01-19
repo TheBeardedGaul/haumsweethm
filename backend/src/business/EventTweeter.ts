@@ -1,0 +1,3 @@
+class EventTweeter extends Event {
+
+}

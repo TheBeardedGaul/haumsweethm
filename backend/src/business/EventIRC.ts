@@ -1,0 +1,3 @@
+class EventIRC extends Event {
+
+}
