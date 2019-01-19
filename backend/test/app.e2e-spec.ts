@@ -14,10 +14,25 @@ describe('AppController (e2e)', () => {
     await app.init();
   });
 
-  it('/ (GET)', () => {
+  it('/ (GET) HAUM Sweet OHM !', () => {
     return request(app.getHttpServer())
       .get('/')
       .expect(200)
-      .expect('Hello World!');
+      .expect('HAUM Sweet OHM !');
+  });
+
+  it("HTTP Request Get groups empty", () => {
+    return request(app.getHttpServer())
+      .get("/groups")
+      .expect(200)
+      .expect([]);
+  });
+
+  it("HTTP Request Post create group", () => {
+    return request(app.getHttpServer())
+      .post("/groups")
+      .send({id: "Group 1"})
+      .expect(201)
+      .expect("true");
   });
 });
