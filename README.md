@@ -1,2 +1,2 @@
-# haumsweethm
-Haum Sweet HM
+# haumsweetohm
+Haum Sweet OHM
