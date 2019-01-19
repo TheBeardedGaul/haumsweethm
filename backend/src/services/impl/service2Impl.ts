@@ -1,4 +1,6 @@
-export class Service2 {
+import { Service2 } from "../interfaces/service2";
+
+export class Service2Impl implements Service2 {
     constructor() {
 
     }
