@@ -1,4 +1,6 @@
-class Group {
+import { Laumio } from "./Laumio";
+
+export class Group {
     private id : string;
-    private laumiosList : Laumios[];
+    private laumioList : Laumio[];
 }

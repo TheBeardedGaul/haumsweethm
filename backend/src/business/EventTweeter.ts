@@ -1,3 +1,5 @@
-class EventTweeter extends Event {
+import { Trigger } from "./Trigger";
+
+export class TriggerTweeter extends Trigger {
 
 }
