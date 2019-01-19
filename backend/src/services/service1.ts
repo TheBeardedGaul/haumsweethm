@@ -8,6 +8,6 @@ export class Service1 {
             title: "API Examples",
             project: "haumsweetohm-api",
             service: "service1"
-          };
+        };
     }
 }
