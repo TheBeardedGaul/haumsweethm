@@ -1,0 +1,34 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "Front HAUMSWEETOHM",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheBeardedGaul/haumsweetohm.git"
+  },
+  "author": "Sodifrance (https://www.sodifrance.fr)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheBeardedGaul/haumsweetohm/issues"
+  },
+  "homepage": "https://github.com/TheBeardedGaul/haumsweetohm#readme",
+  "devDependencies": {
+    "css-loader": "^2.1.0",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.2.4",
+    "vue": "^2.5.22",
+    "vue-loader": "^15.5.1",
+    "vue-template-compiler": "^2.5.22",
+    "webpack": "^4.28.4",
+    "webpack-cli": "^3.2.1"
+  },
+  "dependencies": {
+    "@types/node": "^10.12.18",
+    "koa": "^2.6.2"
+  }
+}
