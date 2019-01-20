@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+
+{% block title %}{{ scenario.title }}{% endblock %}
+
+{% block content %}
+  <h1>{{ scenario.id }}</h1>
+  <p>{{ scenario.color }}</p>
+  <p>{{ scenario.music }}</p>
+  <p>{{ scenario.activeTime }}</p>
+{% endblock %}

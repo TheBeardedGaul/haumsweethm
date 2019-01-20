@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block title %}Scénarios{% endblock %}
+
+{% block content %}
+  <h1>Scénarios</h1>
+  <p><a href="/scenario/new">Créer un scénario</a></p>
+  <ul id="scenarios">
+    {% for scenario in scenarios %}
+      <li>
+        <h2>{{ scenario.title }}</h2>
+        <p><a href="/scenario/{{ scenario.id }}">Détail</a></p>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
