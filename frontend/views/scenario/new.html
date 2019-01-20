@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block title %}Nouveau Scénario{% endblock %}
+
+{% block content %}
+  <h1>Nouveau Scénario</h1>
+  <p>Créer un nouveau Scénario</p>
+  <form action="/scenario" method="post">
+    <p><input type="text" placeholder="Couleur" name="color"></p>
+    <p><input type="text" placeholder="Musique" name="music"></p>
+    <p><input type="number" placeholder="Temps d'activation" name="activeTime"></p>
+    <p><input type="submit" value="Create"></p>
+  </form>
+{% endblock %}
