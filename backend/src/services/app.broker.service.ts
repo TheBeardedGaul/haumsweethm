@@ -1,8 +1,10 @@
 import * as mqtt from 'mqtt';
+import { ListTopic } from '../interfaces/list-topic';
 
 export class BrokerService {
     private _client: mqtt.MqttClient;
-    private _listLaumio : Array<String>;
+    private _listLaumio : string[] = [];
+    private _listTopic: ListTopic;
     
     constructor(serverURL: string) {
         this._client = mqtt.connect(serverURL);
@@ -12,7 +14,7 @@ export class BrokerService {
     
     private handleConnexion() {
         console.log('connection...');
-        for (key in listTopic) {((key) => {
+        for (let key in this._listTopic) {((key) => {
             this._client.subscribe(key, (err) => {
                 console.log('subscribe to "' + key + '" : ' + (err || 'No error'));
                 if (!err && key == 'laumio/status/advertise') {
@@ -26,8 +28,8 @@ export class BrokerService {
     private handleMessage(topic, message) {
         message = message.toString();
         console.log(topic + ' : ' + message);
-        if (listTopic[topic] != undefined) {
-            listTopic[topic](message);
+        if (this._listTopic[topic] != undefined) {
+            this._listTopic[topic](message);
         } else {
             console.log('Unknow topic : ' + topic + ' => ' + message);
         }
