@@ -28,7 +28,8 @@
     "rxjs": "^6.2.2",
     "typescript": "^3.0.1",
     "sqlite3": "^4.0.2",
-    "typeorm": "^0.2.7"
+    "typeorm": "^0.2.7",
+    "mqtt": "2.18.8"
   },
   "devDependencies": {
     "@nestjs/testing": "^5.1.0",

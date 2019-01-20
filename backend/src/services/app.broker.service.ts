@@ -1,7 +1,7 @@
 import * as mqtt from 'mqtt';
 
 export class Laumio {
-    private _client : Object;
+    private _client: mqtt.MqttClient;
     private _listLaumio : Array<String>;
     
     constructor(serverURL: string, ) {
@@ -17,7 +17,7 @@ export class Laumio {
                 console.log('subscribe to "' + key + '" : ' + (err || 'No error'));
                 if (!err && key == 'laumio/status/advertise') {
                     console.log('Detecting laumio...');
-                    client.publish('laumio/all/discover', '');
+                    this._client.publish('laumio/all/discover', '');
                 }
             });
         })(key);}
@@ -49,7 +49,7 @@ export class Laumio {
         }
         console.log("SEND {'command': '" + type + "'" + out + "}");
         targets.forEach(laumioId => {
-            client.publish('laumio/' + laumioId + '/json', "{'command': '" + type + "'" + out + "}");
+            this._client.publish('laumio/' + laumioId + '/json', "{'command': '" + type + "'" + out + "}");
         });
         if (wait > 0) {
             setTimeout(this.display, wait, targets, parameters.slice(1));
