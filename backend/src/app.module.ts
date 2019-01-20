@@ -4,9 +4,8 @@ import { AppController } from './controllers/app.controller';
 import { Service1Controller } from './controllers/service1.controller';
 import { AppService } from './services/app.service';
 import { AppService1 } from './services/app.service1';
-import { GroupController } from './controllers/app.group.controller';
-import { GroupService } from './services/app.group.service';
 import { GroupModule } from './group.module';
+import { LaumioModule } from './laumio.module';
 import { Connection } from 'typeorm';
 
 @Module({
@@ -16,7 +15,7 @@ import { Connection } from 'typeorm';
     synchronize: true,
     logging: false,
     entities: [__dirname + '/../**/*-entity{.ts,.js}'],
-  }), GroupModule],
+  }), GroupModule, LaumioModule],
   controllers: [AppController, Service1Controller],
   providers: [AppService, AppService1],
 })
