@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body } from "@nestjs/common";
+import { Controller, Get, Post, Body, Delete, Param } from "@nestjs/common";
 import { GroupService } from "../services/app.group.service";
 
 @Controller("groups")
@@ -7,14 +7,27 @@ export class GroupController {
 
     @Get()
     async findAll(): Promise<any> {
-        return Promise.resolve(this.groupService.groupList);
+        return Promise.resolve(this.groupService.findAll());
+    }
+
+    @Get("/:id")
+    async findOne(@Param('id') id: string): Promise<any> {
+        return Promise.resolve(this.groupService.findByName(id));
     }
 
     @Post()
     async create(@Body() id: string): Promise<any> {
-        return this.groupService.create(id).then((result) => {
-            return Promise.resolve(result);
-        });
+        return this.groupService.create(id);
+    }
+
+    @Get("/add/:id")
+    async add(@Param('id') id: string): Promise<any> {
+        return this.groupService.create(id);
+    }
+
+    @Delete()
+    async delete(): Promise<any> {
+        return this.groupService.clearAll();
     }
 
 }

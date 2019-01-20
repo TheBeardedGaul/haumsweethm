@@ -1,16 +1,31 @@
 import { Injectable } from '@nestjs/common';
-import { Group } from '../business/Group';
+import { InjectRepository, InjectConnection } from '@nestjs/typeorm';
+import { Repository, Connection } from 'typeorm';
+import { Group } from '../business/group-entity';
 
 @Injectable()
 export class GroupService {
 
-    public groupList: Group[] = [];
+    constructor(@InjectRepository(Group) private readonly groupRepository: Repository<Group>) {
+        
+    }
 
-    create(id: string): Promise<boolean> {
-        let res = true;
-        const group = new Group(id);
-        this.groupList.push(group);
-        console.log(`Group ${id} created`);
+    async findAll(): Promise<Group[]> {
+        return await this.groupRepository.find();
+    }
+
+    async findByName(id: string): Promise<Group> {
+        return await this.groupRepository.find({id})[0];
+    }
+
+    async create(id: string): Promise<boolean> {
+        const group = this.groupRepository.create();
+        group.id = id;
+        await this.groupRepository.insert(group);
         return Promise.resolve(true);
+    }
+
+    async clearAll(): Promise<Group[]> {
+        return await this.groupRepository.remove(await this.findAll());
     }
 }
