@@ -1,10 +1,10 @@
 import * as mqtt from 'mqtt';
 
-export class Laumio {
+export class BrokerService {
     private _client: mqtt.MqttClient;
     private _listLaumio : Array<String>;
     
-    constructor(serverURL: string, ) {
+    constructor(serverURL: string) {
         this._client = mqtt.connect(serverURL);
         this._client.on('connect', this.handleConnexion);
         this._client.on('message', this.handleMessage);
